@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- link the main css file -->
+    <link rel="stylesheet" href="css/style.css" />
+    <!-- link the main js file -->
+    <script type="module" src="js/app.js" defer></script>
+</head>
+<body>
+        <!-- ai2html -->
+        <section class="ai2html">
+            <div class="container-fluid">
+            <div class="row">
+                <div class="col-12">
+                <!-- This is the line that matters for import -->
+                <%- include('./ai2html-output/ai2html-test.ejs'); %>
+                </div>
+            </div>
+            </div>
+        </section>
+
+        <!-- scrolly -->
+        <section id="doge-scrolly">
+
+        <!-- define the scroll sections -->
+        <% const blocks=
+            [
+            { 
+                "filename" : "doge_1" , 
+                "anno": "<div class='h5 fw-bold'> World Map</div> This map will include Average food of diffenent countries and Global Hunger Index"
+            }, 
+            { 
+                "filename" : "doge_2" , 
+                "anno": "<div class='h5 fw-bold'> Countries Average Food Waste (kg/capita/year) </div> This map show which country has the most food waste in kg/capita/year. We can clearly see that most of the food waste is in Western Asia and least in Eastern Europe. This data is based on year 2021."
+            },
+                    { 
+                "filename" : "doge_3" , 
+                "anno": "<div class='h5 fw-bold'> Global Hunger Index </div> Global progress in ending Hunger is at a near standstill. The main drivers of hunger are conflicts, the climate crisis, and the economic consequences of the COVID-19 pandemic. These drivers come on top of underlying factors such as poverty, inequality, inadequate governance. The situation is expected to continue to worsen in the face of overlapping global crises. " 
+                }
+            ] 
+        %>
+        <!-- every { filename, anno } object makes a new section -->
+
+        <!-- include the component -->
+        <%- include('./scrolly/scrolly.ejs', {id: "doge-scrolly" , blocks: blocks }); %>
+        
+        </section>
+</body>
+</html>
